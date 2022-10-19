@@ -26,7 +26,7 @@ services:
       context: ./mysql
       dockerfile: Dockerfile
     volumes:
-      - ./mysql/data:/var/lib/mysql
+      - sysjam-db-data:/var/lib/mysql
       - ./mysql/initdb.d:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_ROOT_PASSWORD=sysjam
@@ -34,3 +34,5 @@ services:
       - .env_mysql
     ports:
       - "3306:3306"
+volumes:
+  sysjam-db-data:
